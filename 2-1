@@ -1,0 +1,23 @@
+import numpy as np
+
+x=[3, 6, 9, 12]
+y=[90, 71, 80, 50]
+
+mx = np.mean(x)
+my = np.mean(y)
+
+divisor = sum([(mx - i)**2 for i in x])
+
+def top(x, mx, y, my):
+	d=0
+	for i in range(len(x)):
+		d+= (x[i] - mx) * (y[i] - my)
+	return d
+
+dividend = top(x, mx, y, my)
+
+a = dividend / divisor
+b = my - (mx*a)
+
+print("기울기 a =", a)
+print("y 절편 b =", b)
